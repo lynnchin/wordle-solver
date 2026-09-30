@@ -3,6 +3,8 @@
 A production-ready Python client and solver for the Wordle API at
 `https://wordle.votee.dev:8000` (ReDoc: `/redoc`, OpenAPI: `/openapi.json`).
 
+Repository: <https://github.com/lynnchin/wordle-solver>
+
 It provides:
 
 - An async HTTP client (`httpx.AsyncClient`) with typed models and structured
@@ -46,16 +48,17 @@ wordle-solver/
 ├── requirements.txt
 ├── .env.example
 ├── app/
-│   ├── __init__.py
+│   ├── __init__.py      # package exports and __version__
 │   ├── config.py        # pydantic-settings configuration
-│   ├── models.py        # ResultKind, GuessResult, GuessResponse
+│   ├── models.py        # ResultKind, GuessResult, GuessResponse, GuessMode
 │   ├── client.py        # async WordleClient + exceptions
 │   ├── solver.py        # candidate-elimination solver
 │   ├── main.py          # Typer CLI (play, solve, version)
 │   └── data/
-│       ├── wordlist.txt # common guess words
-│       └── answers.txt  # broad candidate universe
+│       ├── wordlist.txt # common guess words (~2.3k)
+│       └── answers.txt  # broad candidate universe (~15.7k)
 └── tests/
+    ├── __init__.py
     ├── conftest.py
     ├── test_client.py
     └── test_solver.py
@@ -72,7 +75,7 @@ wordle-solver/
 1. Clone and enter the project:
 
    ```bash
-   git clone <repo-url> wordle-solver
+   git clone https://github.com/lynnchin/wordle-solver.git wordle-solver
    cd wordle-solver
    ```
 
